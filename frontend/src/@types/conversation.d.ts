@@ -1,5 +1,9 @@
 export type Role = 'system' | 'assistant' | 'user';
-export type Model = 'claude-instant-v1' | 'claude-v2' | '***REMOVED***';
+export type Model =
+  | 'claude-instant-v1'
+  | 'claude-v2'
+  | '***REMOVED***'
+  | '***REMOVED***';
 export type Content = {
   contentType: 'text' | 'image';
   mediaType?: string;

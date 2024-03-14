@@ -19,7 +19,9 @@ class KnowledgeModel(BaseModel):
 class MessageModel(BaseModel):
     role: str
     content: list[ContentModel]
-    model: Literal["claude-instant-v1", "claude-v2", "***REMOVED***"]
+    model: Literal[
+        "claude-instant-v1", "claude-v2", "***REMOVED***", "***REMOVED***"
+    ]
     children: list[str]
     parent: str | None
     create_time: float
