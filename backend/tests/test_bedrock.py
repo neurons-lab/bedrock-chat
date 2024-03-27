@@ -6,11 +6,9 @@ import unittest
 from pprint import pprint
 
 from app.bedrock import calculate_query_embedding
-from app.repositories.model import ContentModel, MessageModel
+from app.routes.schemas.conversation import type_model_name
 
-# MODEL = "claude-v2"
-# MODEL = "claude-instant-v1"
-MODEL = "***REMOVED***"
+MODEL: type_model_name = "***REMOVED***"
 
 
 class TestBedrock(unittest.TestCase):
