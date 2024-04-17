@@ -66,6 +66,7 @@ ANTHROPIC_PRICING = {
             "output": 0.00240,
         },
         "***REMOVED***": {"input": 0.00300, "output": 0.01500},
+        "***REMOVED***": {"input": 0.01500, "output": 0.07500},
     },
     "ap-northeast-1": {
         "claude-instant-v1": {
@@ -88,5 +89,6 @@ ANTHROPIC_PRICING = {
         },
         "***REMOVED***": {"input": 0.00025, "output": 0.00125},
         "***REMOVED***": {"input": 0.00300, "output": 0.01500},
+        "***REMOVED***": {"input": 0.01500, "output": 0.07500},
     },
 }

@@ -3,6 +3,7 @@ export type Model =
   | 'claude-instant-v1'
   | 'claude-v2'
   | '***REMOVED***'
+  | '***REMOVED***'
   | '***REMOVED***';
 export type Content = {
   contentType: 'text' | 'image';
