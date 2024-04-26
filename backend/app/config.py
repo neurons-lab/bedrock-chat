@@ -26,6 +26,15 @@ GENERATION_CONFIG: GenerationConfig = {
     "stop_sequences": ["Human: ", "Assistant: "],
 }
 
+# Ref: https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral.html#model-parameters-mistral-request-response
+MISTRAL_GENERATION_CONFIG: GenerationConfig = {
+    "max_tokens": 4096,
+    "top_k": 50,
+    "top_p": 0.9,
+    "temperature": 0.5,
+    "stop_sequences": ["[INST]", "[/INST]"],
+}
+
 # Configure embedding parameter.
 DEFAULT_EMBEDDING_CONFIG: EmbeddingConfig = {
     # DO NOT change `model_id` (currently other models are not supported)
@@ -43,7 +52,7 @@ SEARCH_CONFIG = {
 # Used for price estimation.
 # NOTE: The following is based on 2024-03-07
 # See: https://aws.amazon.com/bedrock/pricing/
-ANTHROPIC_PRICING = {
+BEDROCK_PRICING = {
     "us-east-1": {
         "claude-instant-v1": {
             "input": 0.00080,
@@ -55,6 +64,9 @@ ANTHROPIC_PRICING = {
         },
         "***REMOVED***": {"input": 0.00025, "output": 0.00125},
         "***REMOVED***": {"input": 0.00300, "output": 0.01500},
+        "***REMOVED***": {"input": 0.00015, "output": 0.0002},
+        "***REMOVED***": {"input": 0.00045, "output": 0.0007},
+        "mistral-large": {"input": 0.008, "output": 0.024},
     },
     "us-west-2": {
         "claude-instant-v1": {
@@ -67,6 +79,9 @@ ANTHROPIC_PRICING = {
         },
         "***REMOVED***": {"input": 0.00300, "output": 0.01500},
         "***REMOVED***": {"input": 0.01500, "output": 0.07500},
+        "***REMOVED***": {"input": 0.00015, "output": 0.0002},
+        "***REMOVED***": {"input": 0.00045, "output": 0.0007},
+        "mistral-large": {"input": 0.008, "output": 0.024},
     },
     "ap-northeast-1": {
         "claude-instant-v1": {
@@ -90,5 +105,8 @@ ANTHROPIC_PRICING = {
         "***REMOVED***": {"input": 0.00025, "output": 0.00125},
         "***REMOVED***": {"input": 0.00300, "output": 0.01500},
         "***REMOVED***": {"input": 0.01500, "output": 0.07500},
+        "***REMOVED***": {"input": 0.00015, "output": 0.0002},
+        "***REMOVED***": {"input": 0.00045, "output": 0.0007},
+        "mistral-large": {"input": 0.008, "output": 0.024},
     },
 }

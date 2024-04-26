@@ -9,6 +9,9 @@ type_model_name = Literal[
     "***REMOVED***",
     "***REMOVED***",
     "***REMOVED***",
+    "***REMOVED***",
+    "***REMOVED***",
+    "mistral-large",
 ]
 
 

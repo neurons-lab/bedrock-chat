@@ -4,7 +4,10 @@ export type Model =
   | 'claude-v2'
   | '***REMOVED***'
   | '***REMOVED***'
-  | '***REMOVED***';
+  | '***REMOVED***'
+  | '***REMOVED***'
+  | '***REMOVED***'
+  | 'mistral-large';
 export type Content = {
   contentType: 'text' | 'image';
   mediaType?: string;
