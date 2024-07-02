@@ -20,6 +20,11 @@ const availableModels: {
   },
   {
     modelId: '***REMOVED***',
+    label: 'Claude 3.5 (Sonnet)',
+    supportMediaType: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
+  },
+  {
+    modelId: '***REMOVED***',
     label: 'Claude 3 (Opus)',
     supportMediaType: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
   },

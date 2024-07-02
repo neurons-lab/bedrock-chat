@@ -182,6 +182,8 @@ def get_model_id(model: str) -> str:
     elif model == "***REMOVED***":
         return "anthropic.claude-3-opus-20240229-v1:0"
     elif model == "***REMOVED***":
+        return "anthropic.claude-3-5-sonnet-20240620-v1:0"
+    elif model == "***REMOVED***":
         return "mistral.***REMOVED***-v0:2"
     elif model == "***REMOVED***":
         return "mistral.***REMOVED***-v0:1"
