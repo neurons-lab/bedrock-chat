@@ -10,7 +10,7 @@ export type Model =
   | '***REMOVED***'
   | 'mistral-large';
 export type Content = {
-  contentType: 'text' | 'image' | 'textAttachment';
+  contentType: 'text' | 'image' | 'attachment';
   mediaType?: string;
   fileName?: string;
   body: string;
