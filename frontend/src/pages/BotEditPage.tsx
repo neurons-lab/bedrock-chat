@@ -108,7 +108,7 @@ const BotEditPage: React.FC = () => {
   }, [paramsBotId]);
 
   const botId = useMemo(() => {
-    return isNewBot ? ulid() : paramsBotId ?? '';
+    return isNewBot ? ulid() : (paramsBotId ?? '');
   }, [isNewBot, paramsBotId]);
 
   useEffect(() => {
@@ -116,6 +116,12 @@ const BotEditPage: React.FC = () => {
       setIsLoading(true);
       getMyBot(botId)
         .then((bot) => {
+          // Disallow editing of bots created under opposite VITE_APP_ENABLE_KB environment state
+          if (bot.bedrockKnowledgeBase) {
+            navigate('/');
+            return;
+          }
+
           setTools(bot.agent.tools);
           setTitle(bot.title);
           setDescription(bot.description);
