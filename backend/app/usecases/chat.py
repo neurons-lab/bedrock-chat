@@ -449,6 +449,7 @@ def propose_conversation_title(
         "***REMOVED***",
         "***REMOVED***",
         "***REMOVED***",
+        "***REMOVED***-v2",
         "***REMOVED***",
         "***REMOVED***",
         "***REMOVED***",

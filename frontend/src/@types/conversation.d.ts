@@ -5,6 +5,7 @@ export type Model =
   | '***REMOVED***'
   | '***REMOVED***'
   | '***REMOVED***'
+  | '***REMOVED***-v2'
   | '***REMOVED***'
   | '***REMOVED***'
   | '***REMOVED***'

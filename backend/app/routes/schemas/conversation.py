@@ -18,6 +18,7 @@ type_model_name = Literal[
     "claude-v2",
     "***REMOVED***",
     "***REMOVED***",
+    "***REMOVED***-v2",
     "***REMOVED***",
     "***REMOVED***",
     "***REMOVED***",
