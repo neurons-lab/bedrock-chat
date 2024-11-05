@@ -9,6 +9,7 @@ export type Model =
   | '***REMOVED***'
   | '***REMOVED***'
   | '***REMOVED***'
+  | '***REMOVED***'
   | 'mistral-large';
 export type Content = {
   contentType: 'text' | 'image' | 'attachment';

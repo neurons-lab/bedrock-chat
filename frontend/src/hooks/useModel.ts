@@ -47,6 +47,12 @@ const useModel = () => {
           },
           {
             modelId: '***REMOVED***',
+            label: t('model.haiku3-5.label'),
+            description: t('model.haiku3-5.description'),
+            supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,
+          },
+          {
+            modelId: '***REMOVED***',
             label: t('model.sonnet3.label'),
             description: t('model.sonnet3.description'),
             supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,

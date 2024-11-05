@@ -308,6 +308,7 @@ def get_model_id(
         "***REMOVED***": "anthropic.claude-3-opus-20240229-v1:0",
         "***REMOVED***": "anthropic.claude-3-5-sonnet-20240620-v1:0",
         "***REMOVED***-v2": "anthropic.claude-3-5-sonnet-20241022-v2:0",
+        "***REMOVED***": "anthropic.claude-3-5-haiku-20241022-v1:0",
         "***REMOVED***": "mistral.***REMOVED***-v0:2",
         "***REMOVED***": "mistral.***REMOVED***-v0:1",
         "mistral-large": "mistral.mistral-large-2402-v1:0",
@@ -320,6 +321,7 @@ def get_model_id(
         "***REMOVED***",
         "***REMOVED***",
         "***REMOVED***-v2",
+        "***REMOVED***",
     }
 
     supported_region_prefixes = {
