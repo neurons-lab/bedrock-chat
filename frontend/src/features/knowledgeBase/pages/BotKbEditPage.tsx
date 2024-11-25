@@ -59,13 +59,17 @@ import {
   WebCrawlingScope,
 } from '../types';
 
+
+const MISTRAL_ENABLED: boolean =
+  import.meta.env.VITE_APP_ENABLE_MISTRAL === 'true';
+
 const edgeGenerationParams =
-  import.meta.env.VITE_APP_ENABLE_MISTRAL === 'true'
+MISTRAL_ENABLED === true
     ? EDGE_MISTRAL_GENERATION_PARAMS
     : EDGE_GENERATION_PARAMS;
 
 const defaultGenerationConfig =
-  import.meta.env.VITE_APP_ENABLE_MISTRAL === 'true'
+MISTRAL_ENABLED === true
     ? DEFAULT_MISTRAL_GENERATION_CONFIG
     : DEFAULT_GENERATION_CONFIG;
 
@@ -133,43 +137,68 @@ const BotKbEditPage: React.FC = () => {
   });
 
   const [modelActivate, setModelActivate] = useState<ModelActivate>({
+    // Claude models
     ***REMOVED***: true,
     ***REMOVED***: true,
     ***REMOVED***: true,
     ***REMOVED***: true,
     ***REMOVED***: true,
     ***REMOVED***: true,
+
+    // Mistral models
+    mistral7b: true,
+    mistral8x7b: true,
+    mistralLarge: true,
   });
 
   const modelActivateOptions: {
     key: string,
     label: string
-  }[] = [
-    {
-      key: '***REMOVED***',
-      label: t('model.sonnet3.label')
-    },
-    {
-      key: '***REMOVED***',
-      label: t("model.haiku3.label")
-    },
-    {
-      key: '***REMOVED***',
-      label: t("model.opus3.label")
-    },
-    {
-      key: '***REMOVED***',
-      label: t('model.sonnet3-5.label')
-    },
-    {
-      key: '***REMOVED***',
-      label: t('model.sonnet3-5-v2.label')
-    },
-    {
-      key: '***REMOVED***',
-      label: t('model.haiku3-5.label')
-    }
-  ]
+  }[] =  (() => {
+    return MISTRAL_ENABLED 
+      ?
+        [
+          {
+            key: 'mistral7b',
+            label: t('model.mistral7b.label')
+          },
+          {
+            key: 'mistral8x7b',
+            label: t('model.mistral8x7b.label')
+          },
+          {
+            key: 'mistralLarge',
+            label: t('model.mistralLarge.label')
+          }
+        ]
+      :
+        [
+          {
+            key: '***REMOVED***',
+            label: t('model.sonnet3.label')
+          },
+          {
+            key: '***REMOVED***',
+            label: t("model.haiku3.label")
+          },
+          {
+            key: '***REMOVED***',
+            label: t("model.opus3.label")
+          },
+          {
+            key: '***REMOVED***',
+            label: t('model.sonnet3-5.label')
+          },
+          {
+            key: '***REMOVED***',
+            label: t('model.sonnet3-5-v2.label')
+          },
+          {
+            key: '***REMOVED***',
+            label: t('model.haiku3-5.label')
+          }
+        ]
+  })();
 
   const embeddingsModelOptions: {
     label: string;
@@ -2280,7 +2309,7 @@ const BotKbEditPage: React.FC = () => {
                     {modelActivateOptions.map(({ key, label }) => (
                       <div key={key} className="flex items-center gap-2">
                         <Toggle
-                          value={modelActivate[key as keyof ModelActivate]}
+                          value={modelActivate[key as keyof ModelActivate] ?? false}
                           onChange={(value) => onChangeModelActivate(key, value)}
                         />
                         <span>{label}</span>

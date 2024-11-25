@@ -53,14 +53,22 @@ const MISTRAL_ENABLED: boolean =
   import.meta.env.VITE_APP_ENABLE_MISTRAL === 'true';
 
 // Default model activation settings when no bot is selected
-const defaultModelActivate: ModelActivate = {
-  ***REMOVED***: true,
-  ***REMOVED***: true,
-  ***REMOVED***: true,
-  ***REMOVED***: true,
-  ***REMOVED***: true,
-  ***REMOVED***: true,
-};
+const defaultModelActivate: ModelActivate = (() => {
+  return MISTRAL_ENABLED 
+    ? {
+        mistral7b: true,
+        mistral8x7b: true,
+        mistralLarge: true,
+      }
+    : {
+        ***REMOVED***: true,
+        ***REMOVED***: true,
+        ***REMOVED***: true,
+        ***REMOVED***: true,
+        ***REMOVED***: true,
+        ***REMOVED***: true,
+      };
+})();
 
 const ChatPage: React.FC = () => {
   const { t } = useTranslation();

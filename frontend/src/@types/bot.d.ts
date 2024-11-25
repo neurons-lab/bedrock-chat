@@ -3,12 +3,18 @@ import { BedrockKnowledgeBase } from '../features/knowledgeBase/types';
 export type BotKind = 'private' | 'mixed';
 
 export type ModelActivate = {
-  ***REMOVED***: boolean;
-  ***REMOVED***: boolean;
-  ***REMOVED***: boolean;
-  ***REMOVED***: boolean;
-  ***REMOVED***: boolean;
-  ***REMOVED***: boolean;
+  // # Claude models
+  ***REMOVED***?: boolean;
+  ***REMOVED***?: boolean;
+  ***REMOVED***?: boolean;
+  ***REMOVED***?: boolean;
+  ***REMOVED***?: boolean;
+  ***REMOVED***?: boolean;
+
+  // Mistral models
+  mistral7b?: boolean
+  mistral8x7b?: boolean
+  mistralLarge?: boolean
 };
 
 export type BotMeta = {
