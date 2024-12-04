@@ -10,7 +10,10 @@ export type Model =
   | '***REMOVED***'
   | '***REMOVED***'
   | '***REMOVED***'
-  | 'mistral-large';
+  | 'mistral-large'
+  | 'amazon-nova-pro'
+  | 'amazon-nova-lite'
+  | 'amazon-nova-micro';
 
 export type Content = TextContent | ImageContent | AttachmentContent;
 
