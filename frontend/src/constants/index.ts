@@ -113,5 +113,8 @@ export const MODEL_KEYS: Model[] = [
   '***REMOVED***',
   '***REMOVED***',
   '***REMOVED***',
-  'mistral-large'
+  'mistral-large',
+  "amazon-nova-pro",
+  "amazon-nova-lite",
+  "amazon-nova-micro",
 ];
