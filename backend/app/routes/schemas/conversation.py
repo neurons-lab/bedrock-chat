@@ -21,6 +21,10 @@ type_model_name = Literal[
     "***REMOVED***",
     "***REMOVED***",
     "mistral-large",
+    # New Amazon Nova models
+    "amazon-nova-pro",
+    "amazon-nova-lite",
+    "amazon-nova-micro",
 ]
 
 
