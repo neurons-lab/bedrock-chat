@@ -1,5 +1,4 @@
 import { GenerationParams } from '../@types/bot';
-import { Model } from '../@types/conversation';
 
 export const EDGE_GENERATION_PARAMS = {
   maxTokens: {
@@ -101,18 +100,3 @@ export const GUARDRAILS_CONTECTUAL_GROUNDING_THRESHOLD = {
   MIN: 0,
   STEP: 0.01,
 };
-
-export const MODEL_KEYS: Model[] = [
-  '***REMOVED***',
-  '***REMOVED***',
-  '***REMOVED***',
-  '***REMOVED***-v2',
-  '***REMOVED***',
-  '***REMOVED***',
-  '***REMOVED***',
-  '***REMOVED***',
-  'mistral-large',
-  "amazon-nova-pro",
-  "amazon-nova-lite",
-  "amazon-nova-micro",
-];

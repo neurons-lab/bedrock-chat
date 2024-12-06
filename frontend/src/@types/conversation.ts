@@ -1,17 +1,21 @@
 export type Role = 'system' | 'assistant' | 'user';
-export type Model =
-  | '***REMOVED***'
-  | '***REMOVED***'
-  | '***REMOVED***'
-  | '***REMOVED***-v2'
-  | '***REMOVED***'
-  | '***REMOVED***'
-  | '***REMOVED***'
-  | '***REMOVED***'
-  | 'mistral-large'
-  | 'amazon-nova-pro'
-  | 'amazon-nova-lite'
-  | 'amazon-nova-micro';
+
+export const MODEL_KEYS = [
+  '***REMOVED***',
+  '***REMOVED***',
+  '***REMOVED***',
+  '***REMOVED***-v2',
+  '***REMOVED***',
+  '***REMOVED***',
+  '***REMOVED***',
+  '***REMOVED***',
+  'mistral-large',
+  'amazon-nova-pro',
+  'amazon-nova-lite',
+  'amazon-nova-micro',
+] as const;
+
+export type Model = (typeof MODEL_KEYS)[number];
 
 export type Content = TextContent | ImageContent | AttachmentContent;
 
@@ -63,7 +67,9 @@ export type AgentToolResultJsonContent = {
   json: { [key: string]: any }; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
-export type AgentToolResultContent = AgentToolResultTextContent | AgentToolResultJsonContent;
+export type AgentToolResultContent =
+  | AgentToolResultTextContent
+  | AgentToolResultJsonContent;
 
 export type ToolResultContentBody = {
   toolUseId: string;
@@ -71,7 +77,10 @@ export type ToolResultContentBody = {
   status: 'success' | 'error';
 };
 
-export type SimpleMessageContent = TextContent | ToolUseContent | ToolResultContent;
+export type SimpleMessageContent =
+  | TextContent
+  | ToolUseContent
+  | ToolResultContent;
 
 export type SimpleMessage = {
   role: Role;
@@ -107,7 +116,7 @@ export type PostMessageRequest = {
     parentMessageId: null | string;
   };
   botId?: string;
-  continueGenerate?: bool;
+  continueGenerate?: boolean;
 };
 
 export type PostMessageResponse = {
