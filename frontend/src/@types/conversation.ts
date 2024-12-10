@@ -1,21 +1,9 @@
+import {
+  AVAILABLE_MODEL_KEYS
+} from '../constants/index'
 export type Role = 'system' | 'assistant' | 'user';
 
-export const MODEL_KEYS = [
-  '***REMOVED***',
-  '***REMOVED***',
-  '***REMOVED***',
-  '***REMOVED***-v2',
-  '***REMOVED***',
-  '***REMOVED***',
-  '***REMOVED***',
-  '***REMOVED***',
-  'mistral-large',
-  'amazon-nova-pro',
-  'amazon-nova-lite',
-  'amazon-nova-micro',
-] as const;
-
-export type Model = (typeof MODEL_KEYS)[number];
+export type Model = (typeof AVAILABLE_MODEL_KEYS)[number];
 
 export type Content = TextContent | ImageContent | AttachmentContent;
 
