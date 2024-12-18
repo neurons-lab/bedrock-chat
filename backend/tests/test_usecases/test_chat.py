@@ -998,6 +998,7 @@ class TestInsertKnowledge(unittest.TestCase):
         ]
         instruction = build_rag_prompt(
             search_results=results,
+            model="***REMOVED***-v2",
             display_citation=True,
         )
         print(instruction)
