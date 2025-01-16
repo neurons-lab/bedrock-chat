@@ -100,3 +100,18 @@ export const GUARDRAILS_CONTECTUAL_GROUNDING_THRESHOLD = {
   MIN: 0,
   STEP: 0.01,
 };
+
+export const AVAILABLE_MODEL_KEYS = [
+  '***REMOVED***',
+  '***REMOVED***',
+  '***REMOVED***',
+  '***REMOVED***-v2',
+  '***REMOVED***',
+  '***REMOVED***',
+  '***REMOVED***',
+  '***REMOVED***',
+  'mistral-large',
+  'amazon-nova-pro',
+  'amazon-nova-lite',
+  'amazon-nova-micro',
+] as const;
