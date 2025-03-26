@@ -24,19 +24,19 @@ const NOVA_SUPPORTED_MEDIA_TYPES = [
   'image/webp',
 ];
 
+const DEFAULT_MODEL: Model = 'claude-v3.7-sonnet';
+
 const useModelState = create<{
   modelId: Model;
   setModelId: (m: Model) => void;
 }>((set) => ({
-  modelId: '***REMOVED***',
+  modelId: DEFAULT_MODEL,
   setModelId: (m) => {
     set({
       modelId: m,
     });
   },
 }));
-
-const DEFAULT_MODEL: Model = '***REMOVED***';
 
 // Store the Previous BotId
 const usePreviousBotId = (botId: string | null | undefined) => {
@@ -72,6 +72,7 @@ const useModel = (botId?: string | null, activeModels?: ActiveModels) => {
       modelId: Model;
       label: string;
       supportMediaType: string[];
+      supportReasoning: boolean;
       description?: string;
     }[]
   >(() => {
@@ -82,36 +83,49 @@ const useModel = (botId?: string | null, activeModels?: ActiveModels) => {
             label: t('model.***REMOVED***.label'),
             description: t('model.***REMOVED***.description'),
             supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: false,
           },
           {
             modelId: '***REMOVED***',
             label: t('model.***REMOVED***.label'),
             description: t('model.***REMOVED***.description'),
             supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: false,
           },
           {
             modelId: '***REMOVED***',
             label: t('model.***REMOVED***.label'),
             description: t('model.***REMOVED***.description'),
             supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: false,
           },
           {
             modelId: '***REMOVED***',
             label: t('model.***REMOVED***.label'),
             description: t('model.***REMOVED***.description'),
             supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: false,
           },
           {
             modelId: '***REMOVED***-v2',
             label: t('model.***REMOVED***-v2.label'),
             description: t('model.***REMOVED***-v2.description'),
             supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: false,
+          },
+          {
+            modelId: 'claude-v3.7-sonnet',
+            label: t('model.claude-v3.7-sonnet.label'),
+            description: t('model.claude-v3.7-sonnet.description'),
+            supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: true,
           },
           {
             modelId: '***REMOVED***',
             label: t('model.***REMOVED***.label'),
             description: t('model.***REMOVED***.description'),
             supportMediaType: CLAUDE_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: false,
           },
           // New Amazon Nova models
           {
@@ -119,18 +133,21 @@ const useModel = (botId?: string | null, activeModels?: ActiveModels) => {
             label: t('model.amazon-nova-pro.label'),
             description: t('model.amazon-nova-pro.description'),
             supportMediaType: NOVA_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: false,
           },
           {
             modelId: 'amazon-nova-lite',
             label: t('model.amazon-nova-lite.label'),
             description: t('model.amazon-nova-lite.description'),
             supportMediaType: NOVA_SUPPORTED_MEDIA_TYPES,
+            supportReasoning: false,
           },
           {
             modelId: 'amazon-nova-micro',
             label: t('model.amazon-nova-micro.label'),
             description: t('model.amazon-nova-micro.description'),
             supportMediaType: [],
+            supportReasoning: false,
           },
         ]
       : [
@@ -138,16 +155,19 @@ const useModel = (botId?: string | null, activeModels?: ActiveModels) => {
             modelId: '***REMOVED***',
             label: t('model.***REMOVED***.label'),
             supportMediaType: [],
+            supportReasoning: false,
           },
           {
             modelId: '***REMOVED***',
             label: t('model.***REMOVED***.label'),
             supportMediaType: [],
+            supportReasoning: false,
           },
           {
             modelId: 'mistral-large',
             label: t('model.mistral-large.label'),
             supportMediaType: [],
+            supportReasoning: false,
           },
         ];
   }, [t]);
@@ -252,9 +272,7 @@ const useModel = (botId?: string | null, activeModels?: ActiveModels) => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    botId,
-  ]);
+  }, [botId]);
 
   const model = useMemo(() => {
     return filteredModels.find(
